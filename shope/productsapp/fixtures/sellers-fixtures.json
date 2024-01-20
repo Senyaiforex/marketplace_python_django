@@ -1,0 +1,90 @@
+[
+{
+  "model": "productsapp.seller",
+  "pk": 1,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-06-28T08:56:16.657Z",
+    "is_active": true,
+    "name": "Яндекс",
+    "owner": 2
+  }
+},
+{
+  "model": "productsapp.seller",
+  "pk": 2,
+  "fields": {
+    "created_at": "2023-05-16T16:30:27.503Z",
+    "updated_at": "2023-05-16T16:30:27.503Z",
+    "is_active": true,
+    "name": "Asus",
+    "owner": null
+  }
+},
+{
+  "model": "productsapp.seller",
+  "pk": 3,
+  "fields": {
+    "created_at": "2023-05-16T16:30:59.327Z",
+    "updated_at": "2023-05-16T16:30:59.327Z",
+    "is_active": true,
+    "name": "Магнит",
+    "owner": null
+  }
+},
+{
+  "model": "productsapp.seller",
+  "pk": 4,
+  "fields": {
+    "created_at": "2023-05-16T17:43:51.460Z",
+    "updated_at": "2023-05-16T17:43:51.460Z",
+    "is_active": true,
+    "name": "Gamer PRO",
+    "owner": null
+  }
+},
+{
+  "model": "productsapp.seller",
+  "pk": 5,
+  "fields": {
+    "created_at": "2023-05-16T17:45:25.356Z",
+    "updated_at": "2023-05-16T17:45:25.356Z",
+    "is_active": true,
+    "name": "Витязь",
+    "owner": null
+  }
+},
+{
+  "model": "productsapp.seller",
+  "pk": 6,
+  "fields": {
+    "created_at": "2023-05-16T17:46:17.085Z",
+    "updated_at": "2023-05-16T17:46:17.085Z",
+    "is_active": true,
+    "name": "Candy",
+    "owner": null
+  }
+},
+{
+  "model": "productsapp.seller",
+  "pk": 7,
+  "fields": {
+    "created_at": "2023-05-16T17:47:46.031Z",
+    "updated_at": "2023-05-16T17:47:46.031Z",
+    "is_active": true,
+    "name": "Mxmedia",
+    "owner": null
+  }
+},
+{
+  "model": "productsapp.seller",
+  "pk": 8,
+  "fields": {
+    "created_at": "2023-05-16T17:56:59.268Z",
+    "updated_at": "2023-05-16T17:56:59.268Z",
+    "is_active": true,
+    "name": "OLDI Computers",
+    "owner": null
+  }
+}
+]

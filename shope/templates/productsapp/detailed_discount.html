@@ -1,0 +1,124 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load get_price %}
+
+{% block title %}
+    Megano
+{% endblock %}
+
+
+{% block Header-slider %}
+{% endblock %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+        <div class="Section">
+            <div class="wrap">
+                {% if set_discount %}
+                    <h1 style="text-align: center">{% translate 'Discount on a fixed set of products' %}</h1>
+                        <div class="Middle Middle_top">
+                            <div class="Section">
+                                <div class="wrap">
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Name' %}:
+                                            </strong><span class="Cart-price">{{ set_discount.name }}</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Discount' %}:
+                                            </strong><span class="Cart-price">{{ set_discount.value }} %</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Discount start date' %}:
+                                            </strong><span class="Cart-price">{{ set_discount.start_date }}</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Discount end date' %}:
+                                            </strong><span class="Cart-price">{% firstof set_discount.expiration_date "Not specified" %}</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Description' %}:
+                                            </strong><span class="Cart-price">{{ set_discount.description }}</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title" style="margin-bottom: 2em">{% translate 'A set of products' %}:</strong>
+                                            {% for product in set_discount.products.all %}
+                                                <div class="Cart-product">
+                                                    <div class="Cart-block Cart-block_row">
+                                                        <div class="Cart-block Cart-block_pict">
+                                                            <a class="Cart-pict" href="{% url 'productsapp:product_detail' product.pk %}">
+                                                                <img class="Cart-img" src="{{ product.product_images.first.image.url }}" alt="card.jpg" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="Cart-block Cart-block_info"><a class="Cart-title"
+                                                                                                   href="{% url 'productsapp:product_detail' product.pk %}">{{ product.name }}</a>
+                                                            <div class="Cart-desc">{{ product.short_description }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="Cart-block Cart-block_price">
+                                                            <div class="Cart-price">{{ product.price }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="Cart-block Cart-block_row">
+                                                        <div class="Cart-block Cart-block_seller">
+                                                            <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
+
+                                                        </div>
+                                                        <div class="Cart-block Cart-block_amount">
+                                                            <div class="Cart-amount">
+                                                                <div class="Amount">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="Cart-block Cart-block_delete">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                {% elif cart_discount %}
+                    <h1 style="text-align: center; margin-top: 0">{% translate 'Basket discount' %}</h1>
+                        <div class="Middle Middle_top">
+                            <div class="Section">
+                                <div class="wrap">
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Name' %}:
+                                            </strong><span class="Cart-price">{{ cart_discount.name }}</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Discount' %}:
+                                            </strong><span class="Cart-price">{{ cart_discount.value }} %</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Discount start date' %}:
+                                            </strong><span class="Cart-price">{{ cart_discount.start_date }}</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Discount end date' %}:
+                                            </strong><span class="Cart-price">{% firstof cart_discount.expiration_date "Не указана" %}</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Description' %}:
+                                            </strong><span class="Cart-price">{{ cart_discount.description }}</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Minimum amount required' %}:
+                                            </strong><span class="Cart-price">{{ cart_discount.required_sum }}</span>
+                                        </div></div>
+                                        <div class="Cart-total"><div class="Cart-block Cart-block_total">
+                                            <strong class="Cart-title">{% translate 'Minimum quantity of goods required' %}:
+                                            </strong><span class="Cart-price">{{ cart_discount.required_quantity }}</span>
+                                        </div></div>
+                                </div>
+                            </div>
+                        </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

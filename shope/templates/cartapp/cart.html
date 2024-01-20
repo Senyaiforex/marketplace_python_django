@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load get_price %}
+
+
+{% block title %}
+Megano
+{% endblock %}
+
+        {% block wrap %}
+            <div class="wrap">
+                <div class="row Header-rowMain">
+                    <div class="row-block Header-logo"><a class="logo" href="{% url 'coreapp:index' %}"><img class="logo-image" src="{% static 'assets/img/logo.png' %}" alt="logo.png" /></a>
+                    </div>
+                    <nav class="row-block row-block_right Header-menu">
+                        <div class="menuModal" id="navigate">
+                            <ul class="menu menu_main">
+                                <li class="menu-item"><a class="menu-link" href="{% url 'coreapp:index' %}">{% translate 'Home' %}</a>
+                                </li>
+                                <li class="menu-item"><a href="{% url 'productsapp:sales' %}"><span class="menu-label menu-label_success">{% translate 'Discounts' %}</span></a><a class="menu-link" href="{% url 'productsapp:catalog' %}">{% translate 'Catalog' %}</a>
+                                </li>
+                                <li class="menu-item"><a class="menu-link" href="{% url 'productsapp:comparison' %}">{% translate 'Comparison' %}
+                                    <span style="
+                                        background: #0063d1;
+                                        position: absolute;
+                                        right: -14px;
+                                        top: 0px;
+                                        min-width: 23px;
+                                        font-size: 12px;
+                                        letter-spacing: -0.6px;
+                                        color: #fff;
+                                        padding: 2px;
+                                        line-height: 1.2em;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        border: 3px solid #fff;
+                                        border-radius: 100px;
+                                    ">{% firstof count_comparis '0' %}</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="row-block">
+
+                        <div class="CartBlock">
+                            <div class="dropdown">
+                                {% if user.is_authenticated %}
+                                <button class="dropbtn"><img class="CartBlock-img" src="{% static 'assets/img/icons/loon-icon.svg' %}" alt="loon-icon.svg" /></button>
+                                <div class="dropdown-content">
+                                    <a class="dropdown-content-a" href="{% url 'profileapp:account' %}">{% translate 'Private Office' %}</a>
+                                    {% if user.is_staff %}
+                                    <a class="dropdown-content-a" href="#">{% translate 'Administrative section' %}</a>
+                                    {% endif %}
+                                    <a class="dropdown-content-a" href="{% url 'authapp:logout' %}">{% translate 'Output' %}</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% if session %}
+                            <a class="CartBlock-block" href="{% url 'cartapp:cart' %}"><img class="CartBlock-img" src="{% static 'assets/img/icons/cart.svg' %}" alt="{% static 'cart.svg'%}" /><span class="CartBlock-amount">{% firstof count_cart '0' %}</span></a>
+                            <div class="CartBlock-block"><span class="CartBlock-price">{% firstof total_amount '0' %}</span>
+                            </div>
+                            {% else %}
+                            <a class="CartBlock-block" href="{% url 'cartapp:cart' %}"><img class="CartBlock-img" src="{% static 'assets/img/icons/cart.svg' %}" alt="{% static 'cart.svg'%}" /><span class="CartBlock-amount">{% firstof cart_count '0' %}</span></a>
+                            <div class="CartBlock-block"><span class="CartBlock-price">{% firstof cart_sum '0' %}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row-block Header-trigger"><a class="menuTrigger" href="#navigate">
+                            <div class="menuTrigger-content">{% translate 'Show navigation' %}
+                            </div><span></span><span></span><span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+{% block Header-slider %}
+{% endblock %}
+
+{% block content %}
+<div class="Middle Middle_top">
+    <div class="Section">
+        <div class="wrap">
+
+            <form class="form Cart" action="#" method="post">
+                {% csrf_token %}
+
+                    {% include 'cartapp/cart_ajax.html' %}
+
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

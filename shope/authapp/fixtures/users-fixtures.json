@@ -1,0 +1,46 @@
+[
+{
+  "model": "authapp.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$DVfsSc1GgnrWnyqF6tSpGf$agq4Uz8EF1P5zzlm1QapPoXc1LR33XwWtArGmViNVJk=",
+    "last_login": "2023-06-28T08:49:44.173Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-06-01T13:24:43.197Z",
+    "username": "admin",
+    "middle_name": "",
+    "email": "test@test.test",
+    "activation_key": "",
+    "activation_key_expires": "2023-06-01T13:24:43.766Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$RgVx04tZu2zHuw4aKle71P$iVRisbaDpm4k+CV2RnfXcHvwlW7hAQeWatnqE4iyHXA=",
+    "last_login": "2023-06-28T08:56:37.267Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-06-28T08:52:36Z",
+    "username": "yandex",
+    "middle_name": "",
+    "email": "yandex@yandex.yandex",
+    "activation_key": "",
+    "activation_key_expires": "2023-06-28T08:55:03.416Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+}
+]

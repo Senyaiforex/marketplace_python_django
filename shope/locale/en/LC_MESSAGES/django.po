@@ -1,0 +1,1261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-06 20:57+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\authapp\apps.py:9
+msgid "Users"
+msgstr ""
+
+#: .\authapp\forms.py:71 .\authapp\forms.py:127
+#: .\templates\profileapp\profileAvatar.html:82
+msgid "Password"
+msgstr ""
+
+#: .\authapp\forms.py:73 .\authapp\forms.py:129
+#: .\templates\profileapp\profileAvatar.html:87
+msgid "Password confirmation"
+msgstr ""
+
+#: .\authapp\forms.py:74 .\templates\orderapp\oneorder.html:42
+#: .\templates\productsapp\detailed_discount.html:24
+#: .\templates\productsapp\detailed_discount.html:90
+#: .\templates\productsapp\detailed_seller.html:23
+msgid "Name"
+msgstr ""
+
+#: .\authapp\forms.py:75
+msgid "Surname"
+msgstr ""
+
+#: .\authapp\forms.py:76
+msgid "Middle name"
+msgstr ""
+
+#: .\authapp\models.py:12
+msgid "username"
+msgstr ""
+
+#: .\authapp\models.py:14
+msgid "middle name"
+msgstr ""
+
+#: .\authapp\models.py:17
+msgid "email address"
+msgstr ""
+
+#: .\authapp\tasks.py:28
+msgid "Email confirmation on"
+msgstr ""
+
+#: .\authapp\views.py:23
+msgid ""
+"You have successfully registered. \n"
+"The account activation link has been emailed to you.\n"
+" You must confirm your account within 72 hours."
+msgstr ""
+
+#: .\authapp\views.py:26
+msgid "Link to change your password was sent to your email address"
+msgstr ""
+
+#: .\authapp\views.py:28
+msgid "Your password has been successfully changed"
+msgstr ""
+
+#: .\authapp\views.py:29
+msgid ""
+"An error has occurred. The activation period has expired\n"
+"Try registering again."
+msgstr ""
+
+#: .\cartapp\models\cart.py:16 .\orderapp\models.py:18
+#: .\paymentapp\models.py:17 .\paymentapp\models.py:52
+#: .\profileapp\models\profile.py:15 .\profileapp\models\viewed_product.py:16
+msgid "user"
+msgstr ""
+
+#: .\cartapp\models\cart.py:19 .\cartapp\models\cartitem.py:29
+msgid "cart"
+msgstr ""
+
+#: .\cartapp\models\cart.py:20
+msgid "carts"
+msgstr ""
+
+#: .\cartapp\models\cartitem.py:18 .\orderapp\models.py:96
+#: .\productsapp\models\images.py:21 .\productsapp\models\price.py:22
+#: .\productsapp\models\product.py:40 .\productsapp\models\seller_items.py:23
+#: .\productsapp\models\slider.py:15
+msgid "product"
+msgstr ""
+
+#: .\cartapp\models\cartitem.py:23
+msgid "quantity"
+msgstr ""
+
+#: .\cartapp\models\cartitem.py:39
+msgid "Discounted price"
+msgstr ""
+
+#: .\cartapp\models\cartitem.py:46
+msgid "items in cart"
+msgstr ""
+
+#: .\cartapp\models\cartitem.py:47
+msgid "item in cart"
+msgstr ""
+
+#: .\coreapp\enums.py:10
+msgid "Created by"
+msgstr ""
+
+#: .\coreapp\enums.py:11
+msgid "Pending write-off"
+msgstr ""
+
+#: .\coreapp\enums.py:12
+msgid "Cancelled"
+msgstr ""
+
+#: .\coreapp\enums.py:13
+msgid "Successfully completed"
+msgstr ""
+
+#: .\coreapp\enums.py:20 .\templates\orderapp\oneorder.html:89
+msgid "Paid"
+msgstr ""
+
+#: .\coreapp\enums.py:21 .\templates\orderapp\oneorder.html:91
+msgid "Not paid for"
+msgstr ""
+
+#: .\coreapp\enums.py:35
+msgid "Default delivery"
+msgstr ""
+
+#: .\coreapp\enums.py:36 .\templates\productsapp\product.html:188
+msgid "Express delivery"
+msgstr ""
+
+#: .\coreapp\models.py:25 .\productsapp\models\category.py:13
+#: .\productsapp\models\discount.py:14 .\productsapp\models\product.py:13
+#: .\productsapp\models\seller.py:14
+msgid "name"
+msgstr ""
+
+#: .\coreapp\models.py:31 .\productsapp\models\discount.py:19
+#: .\productsapp\models\price.py:15
+msgid "value"
+msgstr ""
+
+#: .\coreapp\models.py:38
+msgid "Base configuration"
+msgstr ""
+
+#: .\coreapp\models.py:39
+msgid "Base configurations"
+msgstr ""
+
+#: .\orderapp\models.py:24 .\profileapp\models\profile.py:19
+#: .\templates\profileapp\profileAvatar.html:65
+msgid "FIO"
+msgstr ""
+
+#: .\orderapp\models.py:29 .\profileapp\models\profile.py:31
+msgid "phone number"
+msgstr ""
+
+#: .\orderapp\models.py:34
+msgid "status"
+msgstr ""
+
+#: .\orderapp\models.py:41
+msgid "city"
+msgstr ""
+
+#: .\orderapp\models.py:46
+msgid "address"
+msgstr ""
+
+#: .\orderapp\models.py:51
+msgid "delivery type"
+msgstr ""
+
+#: .\orderapp\models.py:59
+msgid "delivery price"
+msgstr ""
+
+#: .\orderapp\models.py:65
+msgid "total price"
+msgstr ""
+
+#: .\orderapp\models.py:71
+msgid "total discounted price"
+msgstr ""
+
+#: .\orderapp\models.py:78 .\orderapp\models.py:90 .\paymentapp\models.py:33
+msgid "order"
+msgstr ""
+
+#: .\orderapp\models.py:79
+msgid "orders"
+msgstr ""
+
+#: .\orderapp\models.py:101
+msgid "count"
+msgstr ""
+
+#: .\orderapp\models.py:107 .\productsapp\models\price.py:29
+#: .\productsapp\models\seller.py:28 .\productsapp\models\seller_items.py:16
+msgid "seller"
+msgstr ""
+
+#: .\orderapp\models.py:113
+msgid "price"
+msgstr ""
+
+#: .\orderapp\models.py:118
+msgid "discounted price"
+msgstr ""
+
+#: .\orderapp\models.py:124
+msgid "order item"
+msgstr ""
+
+#: .\orderapp\models.py:125
+msgid "order items"
+msgstr ""
+
+#: .\paymentapp\apps.py:8 .\templates\orderapp\historyorder.html:56
+#: .\templates\orderapp\oneorder.html:80 .\templates\orderapp\order.html:155
+#: .\templates\paymentapp\payment.html:6 .\templates\paymentapp\payment.html:18
+#: .\templates\paymentapp\payment.html:23
+#: .\templates\paymentapp\paymentsomeone.html:6
+#: .\templates\paymentapp\paymentsomeone.html:18
+#: .\templates\paymentapp\paymentsomeone.html:23
+#: .\templates\paymentapp\progressPayment.html:6
+#: .\templates\productsapp\product.html:192
+#: .\templates\profileapp\account.html:79
+msgid "Payment"
+msgstr ""
+
+#: .\paymentapp\forms.py:10 .\templates\paymentapp\payment.html:34
+msgid "Card number"
+msgstr ""
+
+#: .\paymentapp\forms.py:14
+msgid "Cardholder name"
+msgstr ""
+
+#: .\paymentapp\forms.py:19
+msgid "Expiry date"
+msgstr ""
+
+#: .\paymentapp\forms.py:24
+msgid "Code"
+msgstr ""
+
+#: .\paymentapp\forms.py:29
+msgid "total sum (rub.)"
+msgstr ""
+
+#: .\paymentapp\forms.py:35
+msgid "MM/YY"
+msgstr ""
+
+#: .\paymentapp\models.py:20
+msgid "yookassa payment id"
+msgstr ""
+
+#: .\paymentapp\models.py:24
+msgid "amount"
+msgstr ""
+
+#: .\paymentapp\models.py:27
+msgid "payment status"
+msgstr ""
+
+#: .\paymentapp\models.py:41
+msgid "payment"
+msgstr ""
+
+#: .\paymentapp\models.py:42
+msgid "payments"
+msgstr ""
+
+#: .\paymentapp\models.py:55
+msgid "card number"
+msgstr ""
+
+#: .\paymentapp\models.py:58
+msgid "payment method id"
+msgstr ""
+
+#: .\paymentapp\models.py:61
+msgid "card type"
+msgstr ""
+
+#: .\paymentapp\models.py:63 .\productsapp\models\discount.py:27
+msgid "expiration date"
+msgstr ""
+
+#: .\paymentapp\models.py:69
+msgid "card"
+msgstr ""
+
+#: .\paymentapp\models.py:70
+msgid "cards"
+msgstr ""
+
+#: .\productsapp\forms\add_review_form.py:16
+msgid "Review"
+msgstr ""
+
+#: .\productsapp\models\banner.py:14 .\productsapp\models\category.py:22
+#: .\productsapp\models\product.py:30
+msgid "category"
+msgstr ""
+
+#: .\productsapp\models\banner.py:20 .\productsapp\models\images.py:14
+msgid "image"
+msgstr ""
+
+#: .\productsapp\models\banner.py:24
+msgid "banner"
+msgstr ""
+
+#: .\productsapp\models\banner.py:25
+msgid "banners"
+msgstr ""
+
+#: .\productsapp\models\category.py:19
+msgid "icon (SVG)"
+msgstr ""
+
+#: .\productsapp\models\category.py:23 .\productsapp\models\discount.py:69
+msgid "categories"
+msgstr ""
+
+#: .\productsapp\models\discount.py:23
+msgid "start date"
+msgstr ""
+
+#: .\productsapp\models\discount.py:32 .\productsapp\models\product.py:15
+#: .\productsapp\models\slider.py:21 .\productsapp\models\specific.py:17
+msgid "description"
+msgstr ""
+
+#: .\productsapp\models\discount.py:37
+msgid "priority"
+msgstr ""
+
+#: .\productsapp\models\discount.py:51 .\productsapp\models\discount.py:63
+#: .\productsapp\models\product.py:41
+msgid "products"
+msgstr ""
+
+#: .\productsapp\models\discount.py:54
+msgid "Set Discount"
+msgstr ""
+
+#: .\productsapp\models\discount.py:55
+msgid "Set Discounts"
+msgstr ""
+
+#: .\productsapp\models\discount.py:74
+msgid "Product Discount"
+msgstr ""
+
+#: .\productsapp\models\discount.py:75
+msgid "Product Discounts"
+msgstr ""
+
+#: .\productsapp\models\discount.py:86
+msgid "required sum"
+msgstr ""
+
+#: .\productsapp\models\discount.py:91
+msgid "required quantity"
+msgstr ""
+
+#: .\productsapp\models\discount.py:94
+msgid "Cart Discount"
+msgstr ""
+
+#: .\productsapp\models\discount.py:95
+msgid "Cart Discounts"
+msgstr ""
+
+#: .\productsapp\models\images.py:28
+msgid "product image"
+msgstr ""
+
+#: .\productsapp\models\images.py:29
+msgid "product images"
+msgstr ""
+
+#: .\productsapp\models\price.py:36
+msgid "price slice"
+msgstr ""
+
+#: .\productsapp\models\price.py:37
+msgid "price slices"
+msgstr ""
+
+#: .\productsapp\models\product.py:18
+msgid "short_description"
+msgstr ""
+
+#: .\productsapp\models\product.py:24
+msgid "archived"
+msgstr ""
+
+#: .\productsapp\models\product.py:26
+msgid "free_delivery"
+msgstr ""
+
+#: .\productsapp\models\product.py:36
+msgid "limited"
+msgstr ""
+
+#: .\productsapp\models\review.py:21
+msgid "text"
+msgstr ""
+
+#: .\productsapp\models\review.py:24
+msgid "review"
+msgstr ""
+
+#: .\productsapp\models\review.py:25
+msgid "reviews"
+msgstr ""
+
+#: .\productsapp\models\seller.py:21
+msgid "companies"
+msgstr ""
+
+#: .\productsapp\models\seller.py:22
+msgid "owner"
+msgstr ""
+
+#: .\productsapp\models\seller.py:29
+msgid "sellers"
+msgstr ""
+
+#: .\productsapp\models\seller_items.py:30
+msgid "seller's item"
+msgstr ""
+
+#: .\productsapp\models\seller_items.py:31
+msgid "seller's items"
+msgstr ""
+
+#: .\productsapp\models\slider.py:25
+msgid "slider"
+msgstr ""
+
+#: .\productsapp\models\slider.py:26
+msgid "sliders"
+msgstr ""
+
+#: .\profileapp\forms\profile_form.py:26
+msgid "Enter a valid phone number (e.g. +79998887766)"
+msgstr ""
+
+#: .\profileapp\forms\profile_form.py:43
+msgid "Maximum avatar size is 2 Mb"
+msgstr ""
+
+#: .\profileapp\forms\profile_form.py:52
+msgid "This phone number is already in use"
+msgstr ""
+
+#: .\profileapp\forms\set_password_form.py:15
+msgid "New password"
+msgstr ""
+
+#: .\profileapp\forms\set_password_form.py:22
+msgid "New password confirmation"
+msgstr ""
+
+#: .\profileapp\models\profile.py:24
+msgid "avatar"
+msgstr ""
+
+#: .\profileapp\models\profile.py:38
+msgid "profile"
+msgstr ""
+
+#: .\profileapp\models\profile.py:39
+msgid "profiles"
+msgstr ""
+
+#: .\profileapp\models\viewed_product.py:29
+msgid "viewed product"
+msgstr ""
+
+#: .\profileapp\models\viewed_product.py:30
+msgid "viewed products"
+msgstr ""
+
+#: .\profileapp\views\profile_update_view.py:19
+msgid "Profile is updated successfully"
+msgstr ""
+
+#: .\shope\settings.py:194
+msgid "English"
+msgstr ""
+
+#: .\shope\settings.py:195
+msgid "Russian"
+msgstr ""
+
+#: .\templates\authapp\email\email_confirm.html:7
+#: .\templates\authapp\login.html:47 .\templates\authapp\registr.html:27
+#: .\templates\base.html:93
+msgid "Registration"
+msgstr ""
+
+#: .\templates\authapp\email\email_confirm.html:8
+#: .\templates\authapp\email\reset_confirm.html:7
+msgid "Dear"
+msgstr ""
+
+#: .\templates\authapp\email\email_confirm.html:9
+msgid "To confirm registration on the Megano website, click on"
+msgstr ""
+
+#: .\templates\authapp\email\email_confirm.html:10
+msgid "Confirm"
+msgstr ""
+
+#: .\templates\authapp\email\email_confirm.html:11
+msgid ""
+"If you were not the one who registered on the website, ignore this email."
+msgstr ""
+
+#: .\templates\authapp\email\email_confirm.html:12
+#: .\templates\authapp\email\reset_confirm.html:14
+msgid "Respectfully,"
+msgstr ""
+
+#: .\templates\authapp\email\reset_confirm.html:8
+msgid ""
+"We have received a request to create a new password for your personal "
+"account on the portal"
+msgstr ""
+
+#: .\templates\authapp\email\reset_confirm.html:11
+msgid "To change your password, please click on the button"
+msgstr ""
+
+#: .\templates\authapp\email\reset_confirm.html:12
+msgid "Change password"
+msgstr ""
+
+#: .\templates\authapp\email\reset_confirm.html:13
+msgid "If you have not sent such a request, simply ignore the letter."
+msgstr ""
+
+#: .\templates\authapp\forgot_password.html:24
+msgid "Password recovery (1/2)"
+msgstr ""
+
+#: .\templates\authapp\forgot_password.html:25
+msgid ""
+"To retrieve your password, enter the e-mail address where your account is "
+"registered account"
+msgstr ""
+
+#: .\templates\authapp\forgot_password.html:36
+msgid "Get a verification code"
+msgstr ""
+
+#: .\templates\authapp\forgot_password.html:39
+#: .\templates\authapp\login.html:32 .\templates\authapp\login.html:43
+#: .\templates\authapp\registr.html:58 .\templates\base.html:92
+msgid "Log in"
+msgstr ""
+
+#: .\templates\authapp\login.html:45
+msgid "Forgot your password?"
+msgstr ""
+
+#: .\templates\authapp\registr.html:56
+msgid "Register"
+msgstr ""
+
+#: .\templates\authapp\set_password.html:25
+msgid "Restore password"
+msgstr ""
+
+#: .\templates\authapp\set_password.html:26
+msgid "Think of a new password for the account"
+msgstr ""
+
+#: .\templates\authapp\set_password.html:39
+msgid "Save password"
+msgstr ""
+
+#: .\templates\base.html:95 .\templates\base.html:155
+#: .\templates\orderapp\historyorder.html:27
+#: .\templates\profileapp\profile.html:27
+msgid "Personal account"
+msgstr ""
+
+#: .\templates\base.html:122 .\templates\base.html:742
+#: .\templates\cartapp\cart.html:19
+#: .\templates\paymentapp\paymentsomeone.html:21
+#: .\templates\paymentapp\progressPayment.html:21
+#: .\templates\productsapp\sale.html:19
+#: .\templates\profileapp\profileAvatar.html:17
+msgid "Home"
+msgstr ""
+
+#: .\templates\base.html:124 .\templates\base.html:226
+#: .\templates\cartapp\cart.html:21
+msgid "Discounts"
+msgstr ""
+
+#: .\templates\base.html:124 .\templates\base.html:744
+#: .\templates\cartapp\cart.html:21
+msgid "Catalog"
+msgstr ""
+
+#: .\templates\base.html:126 .\templates\base.html:746
+#: .\templates\cartapp\cart.html:23
+msgid "Comparison"
+msgstr ""
+
+#: .\templates\base.html:157 .\templates\cartapp\cart.html:54
+msgid "Administrative section"
+msgstr ""
+
+#: .\templates\base.html:159
+msgid "Logout"
+msgstr ""
+
+#: .\templates\base.html:171 .\templates\cartapp\cart.html:72
+msgid "Show navigation"
+msgstr ""
+
+#: .\templates\base.html:185
+msgid "All categories"
+msgstr ""
+
+#: .\templates\base.html:203
+msgid "Televisions"
+msgstr ""
+
+#: .\templates\base.html:208
+msgid "Headphones"
+msgstr ""
+
+#: .\templates\base.html:213
+msgid "Washing machines"
+msgstr ""
+
+#: .\templates\base.html:217 .\templates\base.html:273
+msgid "Accessories"
+msgstr ""
+
+#: .\templates\base.html:220
+msgid "Covers"
+msgstr ""
+
+#: .\templates\base.html:231
+msgid "Electronics"
+msgstr ""
+
+#: .\templates\base.html:236
+msgid "Cameras"
+msgstr ""
+
+#: .\templates\base.html:241
+msgid "Fittings"
+msgstr ""
+
+#: .\templates\base.html:245 .\templates\base.html:254
+msgid "Mobile phones"
+msgstr ""
+
+#: .\templates\base.html:248 .\templates\base.html:276
+msgid "Bags"
+msgstr ""
+
+#: .\templates\base.html:259
+msgid "Microwave ovens"
+msgstr ""
+
+#: .\templates\base.html:264
+msgid "Kitchen appliances"
+msgstr ""
+
+#: .\templates\base.html:269
+msgid "Floor lamps"
+msgstr ""
+
+#: .\templates\base.html:289
+msgid "Search"
+msgstr ""
+
+#: .\templates\base.html:402 .\templates\index.html:85
+msgid "LIMITED OFFER"
+msgstr ""
+
+#: .\templates\base.html:447 .\templates\index.html:134
+msgid "Popular products"
+msgstr ""
+
+#: .\templates\base.html:572 .\templates\index.html:182
+msgid "Limited edition"
+msgstr ""
+
+#: .\templates\base.html:739 .\templates\profileapp\account.html:19
+#: .\templates\profileapp\profile.html:21
+#: .\templates\profileapp\profileAvatar.html:30
+#: .\templates\profileapp\viewed_products.html:19
+msgid "Navigation"
+msgstr ""
+
+#: .\templates\base.html:748 .\templates\orderapp\historyorder.html:29
+#: .\templates\profileapp\account.html:27 .\templates\profileapp\profile.html:5
+#: .\templates\profileapp\profile.html:29
+#: .\templates\profileapp\profileAvatar.html:14
+#: .\templates\profileapp\profileAvatar.html:19
+#: .\templates\profileapp\profileAvatar.html:38
+#: .\templates\profileapp\viewed_products.html:27
+msgid "Profile"
+msgstr ""
+
+#: .\templates\base.html:754
+msgid "Contact"
+msgstr ""
+
+#: .\templates\cartapp\cart.html:52 .\templates\profileapp\account.html:25
+#: .\templates\profileapp\profileAvatar.html:36
+#: .\templates\profileapp\viewed_products.html:25
+msgid "Private Office"
+msgstr ""
+
+#: .\templates\cartapp\cart.html:56
+msgid "Output"
+msgstr ""
+
+#: .\templates\cartapp\cart_ajax.html:9 .\templates\cartapp\cart_ajax.html:11
+msgid "You have received a"
+msgstr ""
+
+#: .\templates\cartapp\cart_ajax.html:9
+msgid "discount on your cart"
+msgstr ""
+
+#: .\templates\cartapp\cart_ajax.html:11
+msgid "discount on a set of products"
+msgstr ""
+
+#: .\templates\cartapp\cart_ajax.html:31 .\templates\cartapp\cart_ajax.html:103
+msgid "Seller"
+msgstr ""
+
+#: .\templates\cartapp\cart_ajax.html:76 .\templates\cartapp\cart_ajax.html:161
+msgid "No products in cart"
+msgstr ""
+
+#: .\templates\cartapp\cart_ajax.html:81 .\templates\cartapp\cart_ajax.html:148
+#: .\templates\orderapp\oneorder.html:144 .\templates\orderapp\order.html:207
+msgid "Total"
+msgstr ""
+
+#: .\templates\cartapp\cart_ajax.html:85
+msgid "Log in to continue"
+msgstr ""
+
+#: .\templates\cartapp\cart_ajax.html:154
+msgid "Place an order"
+msgstr ""
+
+#: .\templates\coreapp\button_to_clear_cache.html:6
+msgid "Full cache reset"
+msgstr ""
+
+#: .\templates\coreapp\button_to_clear_cache.html:7
+msgid "Categories cache reset"
+msgstr ""
+
+#: .\templates\coreapp\button_to_clear_cache.html:8
+msgid "Banners cache reset"
+msgstr ""
+
+#: .\templates\coreapp\button_to_clear_cache.html:9
+msgid "Catalog cache reset"
+msgstr ""
+
+#: .\templates\coreapp\button_to_clear_cache.html:10
+msgid "Top products cache reset"
+msgstr ""
+
+#: .\templates\coreapp\button_to_clear_cache.html:11
+msgid "Products cache reset"
+msgstr ""
+
+#: .\templates\coreapp\button_to_clear_cache.html:12
+msgid "Sellers cache reset"
+msgstr ""
+
+#: .\templates\index.html:233 .\templates\productsapp\catalog.html:290
+#: .\templates\productsapp\product.html:90
+msgid "Congratulations"
+msgstr ""
+
+#: .\templates\index.html:237 .\templates\productsapp\catalog.html:294
+#: .\templates\productsapp\product.html:94
+msgid "Product successfully added to cart"
+msgstr ""
+
+#: .\templates\orderapp\historyorder.html:31
+#: .\templates\profileapp\account.html:29
+#: .\templates\profileapp\account.html:68
+#: .\templates\profileapp\profile.html:31
+#: .\templates\profileapp\profileAvatar.html:40
+#: .\templates\profileapp\viewed_products.html:29
+msgid "Order history"
+msgstr ""
+
+#: .\templates\orderapp\historyorder.html:33
+#: .\templates\profileapp\account.html:31
+#: .\templates\profileapp\profile.html:33
+#: .\templates\profileapp\viewed_products.html:31
+#: .\templates\profileapp\viewed_products.html:43
+msgid "Viewed products"
+msgstr ""
+
+#: .\templates\orderapp\historyorder.html:47
+#: .\templates\orderapp\oneorder.html:20
+msgid "Order"
+msgstr ""
+
+#: .\templates\orderapp\historyorder.html:47
+msgid "from"
+msgstr ""
+
+#: .\templates\orderapp\historyorder.html:51
+#: .\templates\orderapp\order.html:137 .\templates\productsapp\product.html:186
+#: .\templates\profileapp\account.html:73
+msgid "Type of delivery"
+msgstr ""
+
+#: .\templates\orderapp\historyorder.html:61
+#: .\templates\profileapp\account.html:85
+msgid "Total cost"
+msgstr ""
+
+#: .\templates\orderapp\historyorder.html:67
+#: .\templates\orderapp\oneorder.html:86 .\templates\profileapp\account.html:91
+msgid "Status"
+msgstr ""
+
+#: .\templates\orderapp\historyorder.html:82
+msgid "Export orders"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:36
+msgid "Order date"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:48
+msgid "Phone number"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:54
+msgid "E-mail"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:62
+msgid "Delivery type"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:68 .\templates\orderapp\order.html:75
+#: .\templates\orderapp\order.html:143
+msgid "City"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:74 .\templates\orderapp\order.html:80
+#: .\templates\orderapp\order.html:149
+msgid "Address"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:82 .\templates\orderapp\order.html:100
+#: .\templates\orderapp\order.html:157
+msgid "Bank card (online)"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:96 .\templates\orderapp\oneorder.html:98
+msgid "Payment failed"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:134 .\templates\orderapp\order.html:189
+msgid "pcs"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:142 .\templates\orderapp\order.html:203
+msgid "Delivery"
+msgstr ""
+
+#: .\templates\orderapp\oneorder.html:148 .\templates\orderapp\order.html:212
+#: .\templates\orderapp\order.html:218 .\templates\paymentapp\payment.html:39
+#: .\templates\paymentapp\paymentsomeone.html:41
+msgid "Pay"
+msgstr ""
+
+#: .\templates\orderapp\order.html:22
+msgid "Progress"
+msgstr ""
+
+#: .\templates\orderapp\order.html:28 .\templates\orderapp\order.html:46
+msgid "Step 1: Order info"
+msgstr ""
+
+#: .\templates\orderapp\order.html:30 .\templates\orderapp\order.html:92
+msgid "Step 2: Payment method"
+msgstr ""
+
+#: .\templates\orderapp\order.html:32 .\templates\orderapp\order.html:109
+msgid "Step 3: Confirm order"
+msgstr ""
+
+#: .\templates\orderapp\order.html:52 .\templates\orderapp\order.html:117
+msgid "Full name"
+msgstr ""
+
+#: .\templates\orderapp\order.html:58 .\templates\orderapp\order.html:123
+#: .\templates\profileapp\profileAvatar.html:72
+msgid "Phone"
+msgstr ""
+
+#: .\templates\orderapp\order.html:87 .\templates\orderapp\order.html:104
+msgid "Next"
+msgstr ""
+
+#: .\templates\orderapp\order.html:194
+msgid "Remove"
+msgstr ""
+
+#: .\templates\orderapp\order.html:219
+msgid "Cancel"
+msgstr ""
+
+#: .\templates\paymentapp\paymentsomeone.html:34
+msgid "Account number"
+msgstr ""
+
+#: .\templates\paymentapp\paymentsomeone.html:38
+msgid "Generate a random account"
+msgstr ""
+
+#: .\templates\paymentapp\progressPayment.html:18
+#: .\templates\paymentapp\progressPayment.html:23
+msgid "Waiting for payment"
+msgstr ""
+
+#: .\templates\paymentapp\progressPayment.html:32
+msgid "Waiting for confirmation of payment by the payment system"
+msgstr ""
+
+#: .\templates\productsapp\button_to_start_importing.html:5
+msgid "Run a background import of goods"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:22
+#: .\templates\productsapp\catalog.html:58
+msgid "Filter"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:30
+msgid "Price (RUB)"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:37
+msgid "Product name"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:44
+msgid "Items in stock only"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:49
+msgid "With free delivery"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:54
+msgid "Discounted"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:66
+msgid "Popular tags"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:80
+msgid "Export of all products"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:87
+msgid "Export products"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:96
+msgid "Sort by"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:102
+msgid "Popularity"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:104
+msgid "Price"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:106
+#: .\templates\productsapp\product.html:136
+#: .\templates\productsapp\product.html:228
+msgid "Reviews"
+msgstr ""
+
+#: .\templates\productsapp\catalog.html:108
+msgid "Novelty"
+msgstr ""
+
+#: .\templates\productsapp\comparison.html:17
+msgid "Insufficient data for comparison"
+msgstr ""
+
+#: .\templates\productsapp\comparison.html:25
+msgid "Only different characteristics"
+msgstr ""
+
+#: .\templates\productsapp\comparison.html:28
+msgid "Apply"
+msgstr ""
+
+#: .\templates\productsapp\comparison.html:138
+msgid "No common characteristics"
+msgstr ""
+
+#: .\templates\productsapp\comparison.html:141
+#: .\templates\productsapp\product.html:133
+#: .\templates\productsapp\product.html:151
+msgid "Characteristic"
+msgstr ""
+
+#: .\templates\productsapp\comparison.html:142
+#: .\templates\productsapp\product.html:153
+msgid "Value"
+msgstr ""
+
+#: .\templates\productsapp\comparison.html:224
+#: .\templates\productsapp\product.html:83
+msgid "Add to cart"
+msgstr ""
+
+#: .\templates\productsapp\comparison.html:231
+msgid "Remove from comparison"
+msgstr ""
+
+#: .\templates\productsapp\detailed_discount.html:19
+msgid "Discount on a fixed set of products"
+msgstr ""
+
+#: .\templates\productsapp\detailed_discount.html:28
+#: .\templates\productsapp\detailed_discount.html:94
+#: .\templates\productsapp\sale.html:79
+msgid "Discount"
+msgstr ""
+
+#: .\templates\productsapp\detailed_discount.html:32
+#: .\templates\productsapp\detailed_discount.html:98
+msgid "Discount start date"
+msgstr ""
+
+#: .\templates\productsapp\detailed_discount.html:36
+#: .\templates\productsapp\detailed_discount.html:102
+msgid "Discount end date"
+msgstr ""
+
+#: .\templates\productsapp\detailed_discount.html:40
+#: .\templates\productsapp\detailed_discount.html:106
+#: .\templates\productsapp\product.html:127
+msgid "Description"
+msgstr ""
+
+#: .\templates\productsapp\detailed_discount.html:44
+msgid "A set of products"
+msgstr ""
+
+#: .\templates\productsapp\detailed_discount.html:85
+msgid "Basket discount"
+msgstr ""
+
+#: .\templates\productsapp\detailed_discount.html:110
+msgid "Minimum amount required"
+msgstr ""
+
+#: .\templates\productsapp\detailed_discount.html:114
+msgid "Minimum quantity of goods required"
+msgstr ""
+
+#: .\templates\productsapp\detailed_seller.html:30
+msgid "Products"
+msgstr ""
+
+#: .\templates\productsapp\product.html:103
+msgid "Add to comparison"
+msgstr ""
+
+#: .\templates\productsapp\product.html:109
+msgid ""
+"Adding error! You cannot add products from different categories to the "
+"comparison list"
+msgstr ""
+
+#: .\templates\productsapp\product.html:113
+msgid "This product was successfully added to comparison list"
+msgstr ""
+
+#: .\templates\productsapp\product.html:119
+msgid "Tags"
+msgstr ""
+
+#: .\templates\productsapp\product.html:130
+msgid "Sellers"
+msgstr ""
+
+#: .\templates\productsapp\product.html:157
+msgid "Device type"
+msgstr ""
+
+#: .\templates\productsapp\product.html:159
+msgid "Notebook"
+msgstr ""
+
+#: .\templates\productsapp\product.html:180
+msgid "Buy"
+msgstr ""
+
+#: .\templates\productsapp\product.html:188
+msgid "Ordinary delivery"
+msgstr ""
+
+#: .\templates\productsapp\product.html:194
+msgid "Online card"
+msgstr ""
+
+#: .\templates\productsapp\product.html:198
+msgid "Cost"
+msgstr ""
+
+#: .\templates\productsapp\product.html:273
+msgid "Show more"
+msgstr ""
+
+#: .\templates\productsapp\product.html:281
+msgid "Add review"
+msgstr ""
+
+#: .\templates\productsapp\product.html:291
+msgid "Send review"
+msgstr ""
+
+#: .\templates\productsapp\product.html:298
+msgid "To leave a review you need to"
+msgstr ""
+
+#: .\templates\productsapp\product.html:299
+msgid "log on"
+msgstr ""
+
+#: .\templates\productsapp\sale.html:21
+msgid "Blog"
+msgstr ""
+
+#: .\templates\productsapp\sale.html:85
+msgid "Category"
+msgstr ""
+
+#: .\templates\productsapp\sale.html:87
+msgid "Discount on product category"
+msgstr ""
+
+#: .\templates\profileapp\account.html:5
+#: .\templates\profileapp\viewed_products.html:5
+msgid "Account"
+msgstr ""
+
+#: .\templates\profileapp\account.html:54
+msgid "Edit profile"
+msgstr ""
+
+#: .\templates\profileapp\account.html:67
+msgid "Order from"
+msgstr ""
+
+#: .\templates\profileapp\account.html:81
+msgid "Online map"
+msgstr ""
+
+#: .\templates\profileapp\account.html:101
+msgid "You have not yet placed any orders"
+msgstr ""
+
+#: .\templates\profileapp\account.html:114
+msgid "Recently viewed products"
+msgstr ""
+
+#: .\templates\profileapp\profile.html:55
+msgid "Upload a photo"
+msgstr ""
+
+#: .\templates\profileapp\profile.html:87
+#: .\templates\profileapp\profileAvatar.html:84
+msgid "You can change your password here"
+msgstr ""
+
+#: .\templates\profileapp\profile.html:94
+#: .\templates\profileapp\profileAvatar.html:89
+msgid "Re-enter the password"
+msgstr ""
+
+#: .\templates\profileapp\profileAvatar.html:6
+msgid "Change profile"
+msgstr ""
+
+#: .\templates\profileapp\profileAvatar.html:54
+msgid "Avatar"
+msgstr ""
+
+#: .\templates\profileapp\profileAvatar.html:59
+msgid "Choose an avatar"
+msgstr ""
+
+#: .\templates\profileapp\profileAvatar.html:93
+msgid "Save"
+msgstr ""
+
+#: .\templates\profileapp\viewed_products.html:65
+msgid "No products viewed yet"
+msgstr ""

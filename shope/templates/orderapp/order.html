@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+    Megano
+{% endblock %}
+
+{% block Header-slider %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="Middle Middle_top">
+        <div class="Section Section_column Section_columnRight Section_columnWide Order">
+            <div class="wrap">
+
+                <div class="Section-column">
+                    <div class="Section-columnSection">
+                        <header class="Section-header">
+                            <strong class="Section-title">{% translate 'Progress' %}
+                            </strong>
+                        </header>
+                        <div class="Section-columnContent">
+                            <div class="Order-navigate">
+                                <ul class="menu menu_vt">
+                                    <li class="menu-item_ACTIVE menu-item"><a class="menu-link" href="#step1">{% translate 'Step 1: Order info'%}</a>
+                                    </li>
+                                    <li class="menu-item"><a class="menu-link" href="#step2">{% translate 'Step 2: Payment method' %}</a>
+                                    </li>
+                                    <li class="menu-item"><a class="menu-link" href="#step3">{% translate 'Step 3: Confirm order' %}</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Section-content">
+                    <form class="form" id="main-form" action="{% url 'paymentapp:payment' order.pk %}" method="post">
+                        {% csrf_token %}
+                        <div class="Order-block Order-block_OPEN" id="step1">
+                            <header class="Section-header Section-header_sm">
+                                <h2 class="Section-title">{% translate 'Step 1: Order info' %}
+                                </h2>
+                            </header>
+                            <div class="row">
+                                <div class="row-block">
+                                    <div class="form-group">
+                                        <label class="form-label">{% translate 'Full name' %}
+                                            {{order_form.fio}}
+                                            {{order_form.fio.errors}}
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">{% translate 'Phone' %}
+                                            {{order_form.phone_number}}
+                                            {{order_form.phone_number.errors}}
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        {% for delivery_type in order_form.delivery_type %}
+                                            <div>
+                                            <label class="toggle">
+                                                {{delivery_type.tag}}<span class="toggle-box"></span><span class="toggle-text">{{delivery_type.choice_label}}</span>
+                                            </label>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row-block">
+                                    <div class="form-group">
+                                        <label class="form-label" for="city">{% translate 'City' %}</label>
+                                        {{order_form.city}}
+                                        {{order_form.city.errors}}
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="address">{% translate 'Address' %}</label>
+                                        {{order_form.address}}
+                                        {{order_form.address.errors}}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="Order-footer"><a class="btn btn_success Order-next" href="#step2">{% translate 'Next' %}</a>
+                            </div>
+                        </div>
+                        <div class="Order-block" id="step2">
+                            <header class="Section-header Section-header_sm">
+                                <h2 class="Section-title">{% translate 'Step 2: Payment method' %}
+                                </h2>
+                            </header>
+                            <div class="form-group">
+                                <div>
+                                    <label class="toggle">
+                                        <input type="radio" name="pay" value="online" checked="checked" />
+                                        <span class="toggle-box"></span>
+                                        <span class="toggle-text">{% translate 'Bank card (online)' %}</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="Order-footer"><a id="result_btn" class="btn btn_success Order-next" href="#step3">{% translate 'Next' %}</a>
+                            </div>
+                        </div>
+                        <div class="Order-block" id="step3">
+                            <header class="Section-header Section-header_sm">
+                                <h2 class="Section-title">{% translate 'Step 3: Confirm order' %}
+                                </h2>
+                            </header>
+                            <div class="Order-infoBlock">
+                                <div class="Order-personal">
+                                    <div class="row">
+                                        <div class="row-block">
+                                            <div class="Order-info">
+                                                <div class="Order-infoType">{% translate 'Full name' %}:
+                                                </div>
+                                                <div class="Order-infoContent" id="order_fio">
+                                                </div>
+                                            </div>
+                                            <div class="Order-info">
+                                                <div class="Order-infoType">{% translate 'Phone' %}:
+                                                </div>
+                                                <div class="Order-infoContent" id="order_phone_number">
+                                                </div>
+                                            </div>
+                                            <div class="Order-info">
+                                                <div class="Order-infoType">E-mail:
+                                                </div>
+                                                <div class="Order-infoContent">{{request.user.email}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row-block">
+                                            <div class="Order-info Order-info_delivery">
+                                                <div class="Order-infoType">{% translate 'Type of delivery' %}:
+                                                </div>
+                                                <div class="Order-infoContent" id="order_delivery_type">
+                                                </div>
+                                            </div>
+                                            <div class="Order-info">
+                                                <div class="Order-infoType">{% translate 'City' %}:
+                                                </div>
+                                                <div class="Order-infoContent" id="order_city">
+                                                </div>
+                                            </div>
+                                            <div class="Order-info">
+                                                <div class="Order-infoType">{% translate 'Address' %}:
+                                                </div>
+                                                <div class="Order-infoContent" id="order_address">
+                                                </div>
+                                            </div>
+                                            <div class="Order-info Order-info_pay">
+                                                <div class="Order-infoType">{% translate 'Payment' %}:
+                                                </div>
+                                                <div class="Order-infoContent">{% translate 'Bank card (online)' %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Cart Cart_order">
+                                    {% for item in order_items %}
+                                    <div class="Cart-product">
+                                        <div class="Cart-block Cart-block_row">
+                                            <div class="Cart-block Cart-block_pict"><a class="Cart-pict" href="#"><img class="Cart-img" src="{{item.product.product_images.first.image.url}}" alt="card.jpg" /></a>
+                                            </div>
+                                            <div class="Cart-block Cart-block_info"><a class="Cart-title" href="{% url 'productsapp:product_detail' item.product.pk %}">{{item.product.name}}</a>
+                                                <div class="Cart-desc">{{item.product.short_description}}
+                                                </div>
+                                            </div>
+                                            <div class="Cart-block Cart-block_price">
+                                                {% if item.price != item.discounted_price %}
+                                                    <div class="Cart-price discounted_price">
+                                                        {{item.price}}&#8381;
+                                                    </div>
+                                                    <div class="Cart-price">
+                                                        {{item.discounted_price}}&#8381;
+                                                    </div>
+                                                {% else %}
+                                                    <div class="Cart-price">
+                                                        {{item.price}}&#8381;
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="Cart-block Cart-block_row">
+                                            <div class="Cart-block Cart-block_amount">{{item.count}} {% translate 'pcs' %}.
+                                            </div>
+                                        </div>
+                                        <!--{% if order_items|length > 1 %}-->
+                                        <!--<div>-->
+                                            <!--<a href="{% url 'orderapp:remove_item' order.id item.id %}">{% translate 'Remove' %}</a>-->
+                                        <!--</div>-->
+                                        <!--{% endif %}-->
+
+                                    </div>
+                                    {% endfor %}
+                                    <div class="Cart-total">
+                                        <div class="Cart-block Cart-block_total">
+                                            <div>
+                                                <strong class="Cart-title">{% translate 'Delivery' %}:</strong>
+                                                <span class="Cart-price">{{order.delivery_price}} &#8381;</span>
+                                            </div>
+                                            <div>
+                                                <strong class="Cart-title">{% translate 'Total' %}:</strong>
+                                                <span class="Cart-price">{{order.total_discounted_price}} &#8381;</span>
+                                            </div>
+                                        </div>
+                                        <div class="Cart-block">
+                                            <button id="btn_open_modal" class="btn btn_primary btn_lg" type="button">{% translate 'Pay' %}
+                                            </button>
+                                            <div id="modal" class="modal__overlay">
+                                                <div class="modal__content">
+                                                    {{payment_form.as_p}}
+                                                    <div class="payment_bottom">
+                                                        <button class="btn btn_primary" type="submit">{% translate 'Pay' %}</button>
+                                                        <button id="cancel" class="btn btn_primary cancel_btn" type="button">{% translate 'Cancel' %}</button>
+                                                        <span class="total_sum">{{order.total_discounted_price}} &#8381;</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

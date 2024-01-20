@@ -1,0 +1,16 @@
+{% extends 'authapp/email/base-for-messages.html' %}
+{% load static %}
+{% load i18n %}
+{% autoescape off %}
+{% block content %}
+{% block container %}
+<h1>{% translate 'Registration' %}</h1>
+<h3>{% translate 'Dear' %} {{first_name}} {{last_name}}</h3>
+<p>{% translate 'To confirm registration on the Megano website, click on' %}</p>
+<a class="pass" href="{{ protocol }}://{{ domain }}{% url 'authapp:verified' email key %}">{% translate 'Confirm' %}</a>
+<p>{% translate 'If you were not the one who registered on the website, ignore this email.' %}</p>
+<p>{% translate 'Respectfully,' %}</p>
+<p>Megano</p>
+{% endblock %}
+{% endblock %}
+{% endautoescape %}

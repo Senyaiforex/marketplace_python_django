@@ -1,0 +1,130 @@
+[
+  {
+    "model": "orderapp.order",
+    "pk": 1,
+    "fields": {
+      "created_at": "2023-05-25T23:23:35.761Z",
+      "updated_at": "2023-05-25T23:23:35.761Z",
+      "is_active": true,
+      "user": 1,
+      "status": "paid",
+      "city": "dasdasf",
+      "address": "asdasfasf",
+      "delivery_type": "Express delivery",
+      "delivery_price": 200,
+      "total_discounted_price": "12500.00",
+      "total_price": "12500.00"
+    }
+  },
+  {
+    "model": "orderapp.order",
+    "pk": 2,
+    "fields": {
+      "created_at": "2023-05-25T23:24:28.089Z",
+      "updated_at": "2023-05-25T23:24:28.089Z",
+      "is_active": true,
+      "user": 1,
+      "status": "paid",
+      "city": "Санкт-Петербург",
+      "address": "Парфеновская 9",
+      "delivery_type": "Express delivery",
+      "delivery_price": 200,
+      "total_discounted_price": "634854.00",
+      "total_price": "634854.00"
+
+    }
+  },
+  {
+    "model": "orderapp.order",
+    "pk": 3,
+    "fields": {
+      "created_at": "2023-05-25T23:24:51.331Z",
+      "updated_at": "2023-05-25T23:24:51.331Z",
+      "is_active": true,
+      "user": 1,
+      "status": "not paid",
+      "city": "Москва",
+      "address": "Резиновая, 4",
+      "delivery_type": "Default delivery",
+      "delivery_price": 200,
+      "total_discounted_price": "8300.00",
+      "total_price": "8300.00"
+
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 1,
+    "fields": {
+      "created_at": "2023-05-25T23:23:51.262Z",
+      "updated_at": "2023-05-25T23:23:51.262Z",
+      "is_active": true,
+      "order": 1,
+      "product": 5,
+      "count": 2,
+      "seller": 3,
+      "price": "25411.00",
+      "discounted_price": "25011.00"
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 2,
+    "fields": {
+      "created_at": "2023-05-25T23:25:19.595Z",
+      "updated_at": "2023-05-25T23:25:19.595Z",
+      "is_active": true,
+      "order": 1,
+      "product": 6,
+      "count": 1,
+      "seller": 3,
+      "price": "63546.00",
+      "discounted_price": "63546.00"
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 3,
+    "fields": {
+      "created_at": "2023-05-25T23:25:31.992Z",
+      "updated_at": "2023-05-25T23:25:31.992Z",
+      "is_active": true,
+      "order": 2,
+      "product": 7,
+      "count": 5,
+      "seller": 6,
+      "price": "654654.00",
+      "discounted_price": "634654.00"
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 4,
+    "fields": {
+      "created_at": "2023-05-25T23:25:43.369Z",
+      "updated_at": "2023-05-25T23:25:43.369Z",
+      "is_active": true,
+      "order": 3,
+      "product": 6,
+      "count": 2,
+      "seller": 8,
+      "price": "1211.00",
+      "discounted_price": "1211.00"
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 5,
+    "fields": {
+      "created_at": "2023-05-26T01:01:28.175Z",
+      "updated_at": "2023-05-26T01:01:28.175Z",
+      "is_active": true,
+      "order": 3,
+      "product": 4,
+      "count": 2,
+      "seller": 3,
+      "price": "5465.00",
+      "discounted_price": "5465.00"
+    }
+  }
+]

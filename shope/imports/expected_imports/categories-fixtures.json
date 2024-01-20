@@ -1,0 +1,156 @@
+[
+{
+  "model": "productsapp.category",
+  "pk": 1,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-06-05T19:59:13.361Z",
+    "is_active": true,
+    "name": "Телевизоры",
+    "icon": "categories_icons/1.svg"
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 2,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-06-05T19:27:54.063Z",
+    "is_active": true,
+    "name": "Наушники",
+    "icon": "categories_icons/2.svg"
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 3,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-06-05T19:59:57.763Z",
+    "is_active": true,
+    "name": "Стиральные машины",
+    "icon": "categories_icons/3.svg"
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 4,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-06-05T20:08:34.350Z",
+    "is_active": true,
+    "name": "Аксессуары",
+    "icon": "categories_icons/7.svg"
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 5,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-06-05T20:07:03.100Z",
+    "is_active": true,
+    "name": "Чехлы",
+    "icon": "categories_icons/8.svg"
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 6,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-06-05T20:03:43.118Z",
+    "is_active": true,
+    "name": "Электроника",
+    "icon": "categories_icons/5.svg"
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 7,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-06-05T20:00:22.118Z",
+    "is_active": true,
+    "name": "Скидки!",
+    "icon": "categories_icons/4.svg"
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 8,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-05-16T16:52:48.116Z",
+    "is_active": true,
+    "name": "Фотоаппараты",
+    "icon": ""
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 9,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-05-16T16:52:48.116Z",
+    "is_active": true,
+    "name": "Фурнитура",
+    "icon": ""
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 10,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-05-16T16:52:48.116Z",
+    "is_active": true,
+    "name": "Мобильные телефоны",
+    "icon": ""
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 11,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-05-16T16:52:48.116Z",
+    "is_active": true,
+    "name": "Сумки",
+    "icon": ""
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 12,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-05-16T16:52:48.116Z",
+    "is_active": true,
+    "name": "Микроволновые печи",
+    "icon": ""
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 13,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-05-16T16:52:48.116Z",
+    "is_active": true,
+    "name": "Кухонная техника",
+    "icon": ""
+  }
+},
+{
+  "model": "productsapp.category",
+  "pk": 14,
+  "fields": {
+    "created_at": "2023-05-16T16:52:48.116Z",
+    "updated_at": "2023-05-16T16:52:48.116Z",
+    "is_active": true,
+    "name": "Торшеры",
+    "icon": ""
+  }
+}
+]

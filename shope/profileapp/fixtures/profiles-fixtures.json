@@ -1,0 +1,22 @@
+[
+{
+  "model": "profileapp.profile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "fio": "Иванов Василий Андреевич",
+    "avatar_image": "",
+    "phone_number": "+79087867654"
+  }
+},
+{
+  "model": "profileapp.profile",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "fio": "  ",
+    "avatar_image": "",
+    "phone_number": ""
+  }
+}
+]

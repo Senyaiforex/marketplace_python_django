@@ -1,0 +1,8 @@
+﻿{% extends 'admin/change_list.html' %}
+{% load i18n %}
+{% block object-tools-items %}
+    <li>
+        <a href="{% url 'admin:run_background_imports' %}" class="historylink">{% translate 'Run a background import of goods' %}</a>
+    </li>
+    {{ block.super }}
+{% endblock %}

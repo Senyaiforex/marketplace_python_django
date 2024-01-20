@@ -1,0 +1,163 @@
+{% load static %}
+{% load i18n %}
+{% load get_price %}
+
+
+{% if items %}
+    {% if discount %}
+    {% if discount.required_sum or discount.required_quantity %}
+        <h3 class="type-discount">{% translate 'You have received a' %} {{discount.value|floatformat:"0" }}% {% translate 'discount on your cart' %}</h3>
+    {% elif discount.products %}
+        <h3 class="type-discount">{% translate 'You have received a' %} {{discount.value|floatformat:"0"}}% {% translate 'discount on a set of products' %}</h3>
+    {% endif %}
+    {% endif %}
+    {% if session %}
+        {% for count, item, discounted_price in items %}
+
+                <div class="Cart-product">
+                    <div class="Cart-block Cart-block_row">
+                        <div class="Cart-block Cart-block_pict">
+                            <a class="Cart-pict" href="#">
+                                <img class="Cart-img" src="{{item.product.product_images.first.image.url}}" alt="card.jpg"/>
+                            </a>
+                        </div>
+                        <div class="Cart-block Cart-block_info"><a class="Cart-title"
+                                                                   href="{% url 'productsapp:product_detail' item.product.pk %}">{{item.product.name}}</a>
+                            <div class="Cart-desc">{{item.product.description}}
+                            </div>
+                             <br>
+                            <div class="seller-cart">
+                                <a class="Cart-title" href="{% url 'productsapp:seller_detail' item.seller.pk %}">
+                                                            {% translate 'Seller' %}: {{ item.seller.name }}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="Cart-block Cart-block_price">
+                            {% get_price item.value count as price %}
+                            {% if price != discounted_price %}
+                                <div class="Cart-price discounted_price">
+                                    {{price}}&nbsp;&#8381;
+                                </div>
+                                <div class="Cart-price">
+                                    {{discounted_price}}&nbsp;&#8381;
+                                </div>
+                            {% else %}
+                                <div class="Cart-price">
+                                    {{price}}&nbsp;&#8381;
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="Cart-block Cart-block_row">
+                        <div class="Cart-block Cart-block_seller">
+                            <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
+
+                        </div>
+                        <div class="Cart-block Cart-block_amount">
+                            <div class="Cart-amount">
+                                <div class="Amount">
+                                    <button class="Amount-remove" data-product={{item.product.pk}} data-seller={{item.seller.pk}} type="button" data-href="{% url 'cartapp:ajax_reduce_product'%}">
+                                    </button>
+                                    <input class="Amount-input form-input" name="amount" type="text"
+                                           value={{count}} disabled>
+                                    <button class="Amount-add" type="button" data-product={{item.product.pk}} data-seller={{item.seller.pk}} data-href="{% url 'cartapp:ajax_add_product'%}">
+
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cart-block Cart-block_delete">
+                            <button class="Cart-delete" type="button" data-product={{item.product.pk}} data-seller={{item.seller.pk}} data-href="{% url 'cartapp:ajax_delete_product'%}"><img
+                                src="{% static 'assets/img/icons/card/delete.svg' %}" alt="delete.svg"/></button>
+                        </div>
+                    </div>
+                </div>
+        {% empty %}
+            <h2 class="empty-cart">{% translate 'No products in cart' %}</h2>
+            <div></div>
+        {% endfor %}
+                    <div class="Cart-total">
+                        <div class="Cart-block Cart-block_total">
+                            <strong class="Cart-title">{% translate 'Total' %}:</strong>
+                            <span class="Cart-price">{% firstof cart_sum '0' %}&nbsp;&#8381;</span>
+                        </div>
+                        <div class="Cart-block">
+                            <a class="btn btn_success btn_lg" href="{% url 'authapp:login' %}?next={% url 'cartapp:cart' %}">{% translate 'Log in to continue' %}</a>
+                        </div>
+                    </div>
+    {% else %}
+        {% for item in items %}
+            <div class="Cart-product">
+                <div class="Cart-block Cart-block_row">
+                    <div class="Cart-block Cart-block_pict">
+                        <a class="Cart-pict" href="{% url 'productsapp:product_detail' item.product.pk %}">
+                            <img class="Cart-img" src="{{item.product.product_images.first.image.url}}" alt="card.jpg"/>
+                        </a>
+                    </div>
+                    <div class="Cart-block Cart-block_info"><a class="Cart-title"
+                                                               href="{% url 'productsapp:product_detail' item.product.pk %}">{{item.product.name}}</a>
+                        <div class="Cart-desc">{{item.product.description}}
+                        </div>
+                        <br>
+                        <div class="seller-cart">
+                            {% translate 'Seller' %}: {{item.seller.name}}
+                        </div>
+                    </div>
+                    <div class="Cart-block Cart-block_price">
+                        {% get_price item.price item.quantity as price %}
+                        {% if price != item.discounted_price %}
+                            <div class="Cart-price discounted_price">
+                                {{ price }}&nbsp;&#8381;
+                            </div>
+                            <div class="Cart-price" id="">
+                                {{item.discounted_price}}&nbsp;&#8381;
+                            </div>
+                        {% else %}
+                            <div class="Cart-price">
+                                {{price}}&nbsp;&#8381;
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="Cart-block Cart-block_row">
+                    <div class="Cart-block Cart-block_seller">
+                        <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
+
+                    </div>
+                    <div class="Cart-block Cart-block_amount">
+                        <div class="Cart-amount">
+                            <div class="Amount">
+                                <button class="Amount-remove" type="button" data-product={{item.product.pk}} data-seller={{item.seller.pk}} data-href="{% url 'cartapp:ajax_reduce_product' %}">
+                                    </button>
+                                <input class="Amount-input form-input" name="amount" type="text" value="{{ item.quantity }}" disabled >
+                                <button class="Amount-add" type="button" data-product={{item.product.pk}} data-seller={{item.seller.pk}} data-href="{% url 'cartapp:ajax_add_product' %}">
+                                    </button>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Cart-block Cart-block_delete"><button class="Cart-delete" type="button" data-product={{item.product.pk}} data-seller={{item.seller.pk}} data-href="{% url 'cartapp:ajax_delete_product' %}"><img
+                            src="{% static 'assets/img/icons/card/delete.svg' %}" alt="delete.svg"/></button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+            <div class="Cart-total">
+                                <div class="Cart-block Cart-block_total">
+                                    <strong class="Cart-title">{% translate 'Total' %}:
+                                    </strong>
+
+                                    <span class="Cart-price">{% firstof cart_sum '0' %} &#x20bd</span>
+
+                                </div>
+                                <div class="Cart-block"><button class="btn btn_success btn_lg" type="submit" formmethod="post" formaction="{% url 'orderapp:add_order' %}">{% translate 'Place an order' %}</button>
+                                </div>
+                            </div>
+
+
+    {% endif %}
+{% else %}
+    <h2 class="empty-cart">{% translate 'No products in cart' %}</h2>
+    <div></div>
+{% endif %}

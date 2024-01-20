@@ -1,0 +1,14 @@
+﻿{% extends 'admin/change_list.html' %}
+{% load static %}
+{% load i18n %}
+{% block object-tools-items %}
+    {{ block.super }}
+    <div style="margin-top: 5em"><a class="historylink" href="{% url 'admin:clear_cache' cache_name="total" %}">{% translate 'Full cache reset' %}</a></div>
+    <div style="margin-top: 2em"><a class="historylink" href="{% url 'admin:clear_cache' cache_name="categories" %}">{% translate 'Categories cache reset' %}</a></div>
+    <div style="margin-top: 2em"><a class="historylink" href="{% url 'admin:clear_cache' cache_name="banners" %}">{% translate 'Banners cache reset' %}</a></div>
+    <div style="margin-top: 2em"><a class="historylink" href="{% url 'admin:clear_cache' cache_name="catalog" %}">{% translate 'Catalog cache reset' %}</a></div>
+    <div style="margin-top: 2em"><a class="historylink" href="{% url 'admin:clear_cache' cache_name="popular_products" %}">{% translate 'Top products cache reset' %}</a></div>
+    <div style="margin-top: 2em"><a class="historylink" href="{% url 'admin:clear_cache' cache_name="products" %}">{% translate 'Products cache reset' %}</a></div>
+    <div style="margin-top: 2em"><a class="historylink" href="{% url 'admin:clear_cache' cache_name="sellers" %}">{% translate 'Sellers cache reset' %}</a></div>
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load get_object_date %}
+{% block title %}
+Megano
+{% endblock %}
+
+
+{% block Header-slider %}
+{% endblock %}
+
+{% block content %}
+<div class="Middle Middle_top">
+    <div class="Middle-top">
+        <div class="wrap">
+            <div class="Middle-header">
+                <ul class="breadcrumbs Middle-breadcrumbs">
+                    <li class="breadcrumbs-item"><a href="{% url 'coreapp:index' %}">{% translate 'Home' %}</a>
+                    </li>
+                    <li class="breadcrumbs-item breadcrumbs-item_current"><span>{% translate 'Blog' %}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="Section">
+        <div class="wrap">
+            <div class="Cards Cards_blog">
+                {% for object in page_obj %}
+                <div class="Card">
+                    {% if object.type == "cart" %}
+                    <a class="Card-picture" href="{% url 'productsapp:discount_cart_detail' object.pk %}">
+                        <img src="{% static 'discounts_image/carts_sales.jpg' %}" alt=""/>
+                    </a>
+                    {% elif object.type == "set" %}
+                    <a class="Card-picture" href="{% url 'productsapp:discount_set_detail' object.pk %}">
+                        <img src="{% static 'discounts_image/sets_sales.jpg' %}" alt=""/>
+                    </a>
+                    {% elif object.type == "product" %}
+                    <a class="Card-picture" href="{% url 'productsapp:product_detail' object.pk %}">
+                        <img src="{{object.product_images.first.image.url}}" alt=""/>
+                    </a>
+                    {% else %}
+                    <a class="Card-picture" href="{% url 'productsapp:catalog' %}?category={{object.name}}">
+                        <img src="{{object.category_products.first.product_images.last.image.url}}" alt=""/>
+                    </a>
+                    {% endif %}
+                    {% if object.type == "product" or object.type == "category" %}
+                    {% get_object_date object.start_date as start_date %}
+                    <div class="Card-date">
+                        <strong class="Card-date-number">{{ start_date |date:"j" }}</strong>
+                        <span class="Card-date-month">{{ start_date |date:"b" }}</span>
+                    </div>
+                    {% if object.expiration_date %}
+                    {% get_object_date object.expiration_date as expiration_date %}
+                    <div class="Card-date Card-date_to">
+                        <strong class="Card-date-number">{{ expiration_date |date:"j" }}</strong>
+                        <span class="Card-date-month">{{ expiration_date |date:"b" }}</span>
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <div class="Card-date">
+                        <strong class="Card-date-number">{{ object.start_date |date:"j" }}
+                        </strong><span class="Card-date-month">{{ object.start_date |date:"b" }}</span>
+                    </div>
+                    {% if cart.expiration_date %}
+                    <div class="Card-date Card-date_to">
+                        <strong class="Card-date-number">{{ object.expiration_date |date:"j" }}
+                        </strong><span class="Card-date-month">{{ object.expiration_date |date:"b" }}</span>
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                    {% if object.type == "product" %}
+                    <div class="Card-content">
+                        <!--                        <div class="Card-pin"></div>-->
+                        <strong class="Card-title"><a href="{% url 'productsapp:product_detail' object.pk %}">{{object.name}}</a>
+                        </strong>
+                        <div class="Card-description">{% translate 'Discount' %} - {{object.value}} %
+                        </div>
+                    </div>
+                    {% elif object.type == "category" %}
+                    <div class="Card-content">
+                        <strong class="Card-title"><a href="{% url 'productsapp:catalog' %}?category={{object.name}}">
+                            {%translate 'Category' %} - {{object.name}}</a>
+                        </strong>
+                        <div class="Card-description">{% translate 'Discount on product category'%} -
+                            {{object.value}} %
+                        </div>
+                    </div>
+                    {% elif object.type == "set" %}
+                    <div class="Card-content">
+                        <strong class="Card-title"><a
+                                href="{% url 'productsapp:discount_set_detail' object.pk %}">{{object.name}}</a>
+                        </strong>
+                        <div class="Card-description">{{object.description}}</div>
+                    </div>
+                    {% else %}
+                    <div class="Card-content">
+                        <strong class="Card-title"><a
+                                href="{% url 'productsapp:discount_cart_detail' object.pk %}">{{object.name}}</a>
+                        </strong>
+                        <div class="Card-description">{{object.description}}</div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Pagination">
+    <div class="Pagination-ins">
+        <a class="Pagination-element"
+           href="{% url 'productsapp:sales' %}?page=1">
+            <span class="Pagination-text">1</span>
+        </a>
+        {% if page_obj.has_previous %}
+        <a class="Pagination-element Pagination-element_prev"
+           href="{% url 'productsapp:sales' %}?page={{page_obj.previous_page_number}}">
+            <img src="{% static 'assets/img/icons/prevPagination.svg' %}" alt="prevPagination.svg"/>
+        </a>
+        {% else %}
+        <a class="Pagination-element Pagination-element_prev">
+            <img src="{% static 'assets/img/icons/prevPagination.svg' %}" alt="prevPagination.svg"/>
+        </a>
+        {% endif %}
+        <a class="Pagination-element Pagination-element_current" href="">
+            <span class="Pagination-text">{{page_obj.number}}</span>
+        </a>
+        {% if page_obj.has_next %}
+        <a class="Pagination-element Pagination-element_prev"
+           href="{% url 'productsapp:sales' %}?page={{page_obj.next_page_number}}">
+            <img src="{% static 'assets/img/icons/nextPagination.svg' %}" alt="nextPagination.svg"/>
+        </a>
+        {% else %}
+        <a class="Pagination-element Pagination-element_prev">
+            <img src="{% static 'assets/img/icons/nextPagination.svg' %}" alt="nextPagination.svg"/>
+        </a>
+        {% endif %}
+        <a class="Pagination-element"
+           href="{% url 'productsapp:sales' %}?page={{page_obj.paginator.num_pages}}">
+            <span class="Pagination-text">{{page_obj.paginator.num_pages}}</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

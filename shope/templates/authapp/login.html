@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block Header-searchWrap %}
+{% endblock %}
+
+{% block Header-slider %}
+{% endblock %}
+
+{% block wrap %}
+<div class="wrap">
+    <div class="row Header-rowMain">
+        <div class="row-block Header-logo"><a class="logo" href="{% url 'coreapp:index' %}"><img class="logo-image"
+                                                                                         src="{% static 'assets/img/logo.png' %}"
+                                                                                         alt="logo.png"/></a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+    <div class="error-login">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
+    <div class="header">
+        <h3 class="sign-in">{% translate 'Log in' %}</h3>
+    </div>
+    <div class="clear"></div>
+    <form action="" method="post">{% csrf_token %}
+        <div>
+            {{ form.username }}
+        </div>
+        <div>
+            {{ form.password }}
+        </div>
+        <div>
+            <input type="submit" value="{% translate 'Log in' %}"/>
+        </div>
+        <a class="forgot-label" href="{% url 'authapp:forgot_pass' %}">{% translate 'Forgot your password?' %}</a>
+        <a class="registr" href="{% url 'authapp:signup' %}">
+            {% translate 'Registration' %}
+        </a>
+    </form>
+</div>
+{% endblock %}

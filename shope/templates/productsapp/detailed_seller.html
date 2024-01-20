@@ -1,0 +1,78 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    Megano
+{% endblock %}
+
+
+{% block Header-slider %}
+{% endblock %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+    <div class="Section">
+        <div class="wrap">
+            <h1 style="text-align: center">{{ seller.name }}</h1>
+            <div class="Middle Middle_top">
+                <div class="Section">
+                    <div class="wrap">
+                        <div class="Cart-total">
+                            <div class="Cart-block Cart-block_total">
+                                <strong class="Cart-title">{% translate 'Name' %}:
+                                </strong><span class="Cart-price">{{ seller.name }}</span>
+                            </div>
+                        </div>
+                        <div class="Cart-total">
+                            <div class="Cart-block Cart-block_total">
+                                <strong class="Cart-title"
+                                        style="margin-bottom: 2em">{% translate 'Products' %}:</strong>
+                                {% for product in products %}
+                                    <div class="Cart-product">
+                                        <div class="Cart-block Cart-block_row">
+                                            <div class="Cart-block Cart-block_pict">
+                                                <a class="Cart-pict"
+                                                   href="{% url 'productsapp:product_detail' product.pk %}">
+                                                    <img class="Cart-img"
+                                                         src="{{ product.product_images.first.image.url }}"
+                                                         alt="card.jpg"/>
+                                                </a>
+                                            </div>
+                                            <div class="Cart-block Cart-block_info"><a class="Cart-title"
+                                                                                       href="{% url 'productsapp:product_detail' product.pk %}">{{ product.name }}</a>
+                                                <div class="Cart-desc">{{ product.short_description }}
+                                                </div>
+                                            </div>
+                                            <div class="Cart-block Cart-block_price">
+                                                <div class="Cart-price">{{ product.price }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Cart-block Cart-block_row">
+                                            <div class="Cart-block Cart-block_seller">
+                                                <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
+
+                                            </div>
+                                            <div class="Cart-block Cart-block_amount">
+                                                <div class="Cart-amount">
+                                                    <div class="Amount">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="Cart-block Cart-block_delete">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

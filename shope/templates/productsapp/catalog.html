@@ -1,0 +1,299 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sort_links %}
+{% load discounted_price %}
+{% load i18n %}
+
+{% block title %}
+    Megano
+{% endblock %}
+
+
+{% block Header-slider %}
+{% endblock %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+        <div class="Section Section_column Section_columnLeft">
+            <div class="wrap">
+                <div class="Section-column">
+                    <div class="Section-columnSection">
+                        <header class="Section-header">
+                            <strong class="Section-title">{% translate 'Filter' %}
+                            </strong>
+                        </header>
+                        <div class="Section-columnContent">
+                            <form class="form" action="" method="get">
+                                <div class="form-group">
+                                    <div class="range Section-columnRange">
+                                        <input class="range-line" id="price" name="price_range" type="text" data-type="double" data-min="1" data-max="1000000" data-from="1" data-to="1000000" />
+                                        <div class="range-price">{% translate 'Price (RUB)' %}:&#32;
+                                            <div class="rangePrice">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-input form-input_full" id="title" name="query" type="text" placeholder="{% translate 'Product name' %}" />
+                                </div>
+                                <div class="form-group">
+                                    <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
+                                </div>
+                                <div class="form-group">
+                                    <label class="toggle">
+                                        <input type="checkbox" name="in_stock"/><span class="toggle-box"></span><span class="toggle-text">{% translate 'Items in stock only' %}</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="toggle">
+                                        <input type="checkbox" name="free_delivery"/><span class="toggle-box"></span><span class="toggle-text">{% translate 'With free delivery' %}</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="toggle">
+                                        <input type="checkbox" name="discounted"/><span class="toggle-box"></span><span class="toggle-text">{% translate 'Discounted' %}</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="buttons"><button type="submit" class="btn btn_square btn_dark btn_narrow">{% translate 'Filter' %}</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="Section-columnSection">
+                        <header class="Section-header">
+                            <strong class="Section-title">{% translate 'Popular tags' %}
+                            </strong>
+                        </header>
+                        <div class="Section-columnContent">
+                            <div class="buttons">
+                                {% for tag in tags_list %}
+                                    <a class="btn btn_default btn_sm" href="?tag={{tag.name}}">{{tag.name}}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% if page_obj %}
+                        <div class="Section-columnSection">
+                            <header class="Section-header">
+                                <strong class="Section-title">{% translate 'Export of all products' %}
+                                </strong>
+                            </header>
+                            <div class="Section-columnContent">
+                                <form action="{% url 'productsapp:export_product' %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn_primary" type="submit">
+                                        {% translate 'Export products' %}
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="Section-content">
+                    <div class="Sort">
+                        <div class="Sort-title">{% translate 'Sort by' %}:
+                        </div>
+                        <div class="Sort-variants">
+
+                        {% with sort=request.GET.sort query=request.META.QUERY_STRING%}
+                        <a class="Sort-sortBy {{ sort|sortclass:'popular' }}"
+                           href="{% url 'productsapp:catalog' %}?{{ query|sortquery:'popular'}}">{% translate 'Popularity' %}</a>
+                        <a class="Sort-sortBy {{ sort|sortclass:'price' }}"
+                           href="{% url 'productsapp:catalog' %}?{{ query|sortquery:'price'}}">{% translate 'Price' %}</a>
+                        <a class="Sort-sortBy {{ sort|sortclass:'reviews' }}"
+                           href="{% url 'productsapp:catalog' %}?{{ query|sortquery:'reviews'}}">{% translate 'Reviews' %}</a>
+                        <a class="Sort-sortBy {{ sort|sortclass:'new' }}"
+                           href="{% url 'productsapp:catalog' %}?{{ query|sortquery:'new'}}">{% translate 'Novelty' %}</a>
+                        {% endwith %}
+
+                        </div>
+                    </div>
+                    <div class="Cards">
+                        {% for object in page_obj %}
+                            <div class="Card"><a class="Card-picture" href="{% url 'productsapp:product_detail' object.id %}"><img src="{{object.product_images.first.image.url}}" alt="card.jpg" /></a>
+                                <div class="Card-content">
+                                    <strong class="Card-title"><a href="{% url 'productsapp:product_detail' object.id %}">{{object.name}}</a>
+                                    </strong>
+                                    <div class="Card-description">
+                                        {% with disc_price=object|discounted_price:object.price %}
+                                            {% if disc_price %}
+                                                <div class="Card-cost"><span class="Card-price discounted_price">{{object.price}} &#8381;</span>
+                                                </div>
+                                                <div class="Card-cost"><span class="Card-price">{{ disc_price }} &#8381;</span>
+                                                </div>
+                                            {% else %}
+                                                <div class="Card-cost"><span class="Card-price">{{ object.price }} &#8381;</span>
+                                                </div>
+                                            {% endif %}
+                                        {% endwith %}
+                                        <div class="Card-category">{{object.category}}
+                                        </div>
+                                        <div class="Card-hover"><a class="Card-btn" onclick="AddToCart('{% url 'cartapp:ajax_add_product' %}', {{object.pk}}, {{object.seller_id}} )"><img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <!--
+                        <div class="Card"><a class="Card-picture" href="#"><img src="{% static 'assets/img/content/home/card.jpg' %}" alt="card.jpg" /></a>
+                            <div class="Card-content">
+                                <strong class="Card-title"><a href="product.html">Barand New Phone Smart Business</a>
+                                </strong>
+                                <div class="Card-description">
+                                    <div class="Card-cost"><span class="Card-price">$85.00</span>
+                                    </div>
+                                    <div class="Card-category">Игры / xbox
+                                    </div>
+                                    <div class="Card-hover"><a class="Card-btn" href="#"><img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Card"><a class="Card-picture" href="#"><img src="{% static 'assets/img/content/home/card.jpg' %}" alt="card.jpg" /></a>
+                            <div class="Card-content">
+                                <strong class="Card-title"><a href="product.html">Mavic PRO Mini Drones Hobby RC Quadcopter</a>
+                                </strong>
+                                <div class="Card-description">
+                                    <div class="Card-cost"><span class="Card-price">$185.00</span>
+                                    </div>
+                                    <div class="Card-category">Разработка / xbox
+                                    </div>
+                                    <div class="Card-hover"><a class="Card-btn" href="#"><img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Card"><a class="Card-picture" href="#"><img src="{% static 'assets/img/content/home/card.jpg' %}" alt="card.jpg" /></a>
+                            <div class="Card-content">
+                                <strong class="Card-title"><a href="product.html">Corsair Carbide Series Arctic White Steel</a>
+                                </strong>
+                                <div class="Card-description">
+                                    <div class="Card-cost"><span class="Card-price">$210.00</span>
+                                    </div>
+                                    <div class="Card-category">Медиа / xbox
+                                    </div>
+                                    <div class="Card-hover"><a class="Card-btn" href="#"><img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Card hide_md"><a class="Card-picture" href="#"><img src="{% static 'assets/img/content/home/card.jpg' %}" alt="card.jpg" /></a>
+                            <div class="Card-content">
+                                <strong class="Card-title"><a href="product.html">Corsair Carbide Series Arctic White Steel</a>
+                                </strong>
+                                <div class="Card-description">
+                                    <div class="Card-cost"><span class="Card-price">$85.00</span>
+                                    </div>
+                                    <div class="Card-category">Игры / xbox
+                                    </div>
+                                    <div class="Card-hover"><a class="Card-btn" href="#"><img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Card hide_md"><a class="Card-picture" href="#"><img src="{% static 'assets/img/content/home/card.jpg' %}" alt="card.jpg" /></a>
+                            <div class="Card-content">
+                                <strong class="Card-title"><a href="product.html">Barand New Phone Smart Business</a>
+                                </strong>
+                                <div class="Card-description">
+                                    <div class="Card-cost"><span class="Card-price">$85.00</span>
+                                    </div>
+                                    <div class="Card-category">Игры / xbox
+                                    </div>
+                                    <div class="Card-hover"><a class="Card-btn" href="#"><img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Card hide_md hide_1450"><a class="Card-picture" href="#"><img src="{% static 'assets/img/content/home/card.jpg' %}" alt="card.jpg" /></a>
+                            <div class="Card-content">
+                                <strong class="Card-title"><a href="product.html">Mavic PRO Mini Drones Hobby RC Quadcopter</a>
+                                </strong>
+                                <div class="Card-description">
+                                    <div class="Card-cost"><span class="Card-price">$185.00</span>
+                                    </div>
+                                    <div class="Card-category">Дизайн / xbox
+                                    </div>
+                                    <div class="Card-hover"><a class="Card-btn" href="#"><img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Card hide_md hide_1450"><a class="Card-picture" href="#"><img src="{% static 'assets/img/content/home/card.jpg' %}" alt="card.jpg" /></a>
+                            <div class="Card-content">
+                                <strong class="Card-title"><a href="product.html">Corsair Carbide Series Arctic White Steel</a>
+                                </strong>
+                                <div class="Card-description">
+                                    <div class="Card-cost"><span class="Card-price">$210.00</span>
+                                    </div>
+                                    <div class="Card-category">Игры / xbox
+                                    </div>
+                                    <div class="Card-hover"><a class="Card-btn" href="#"><img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                    <div class="Pagination">
+                        <div class="Pagination-ins">
+                            {% with query=request.META.QUERY_STRING %}
+                            <a class="Pagination-element"
+                               href="{% url 'productsapp:catalog' %}?{{query}}&page=1">
+                                <span class="Pagination-text">1</span>
+                            </a>
+
+                            {% if page_obj.has_previous %}
+                                <a class="Pagination-element Pagination-element_prev"
+                                   href="{% url 'productsapp:catalog' %}?{{query}}&page={{page_obj.previous_page_number}}">
+                                    <img src="{% static 'assets/img/icons/prevPagination.svg' %}" alt="prevPagination.svg" />
+                                </a>
+                            {% else %}
+                                <a class="Pagination-element Pagination-element_prev"
+                                   >
+                                    <img src="{% static 'assets/img/icons/prevPagination.svg' %}" alt="prevPagination.svg" />
+                                </a>
+                            {% endif %}
+
+                            <a class="Pagination-element Pagination-element_current" href="">
+                                <span class="Pagination-text">{{page_obj.number}}</span>
+                            </a>
+
+                            {% if page_obj.has_next %}
+                            <a class="Pagination-element Pagination-element_prev"
+                               href="{% url 'productsapp:catalog' %}?{{query}}&page={{page_obj.next_page_number}}">
+                                <img src="{% static 'assets/img/icons/nextPagination.svg' %}" alt="nextPagination.svg" />
+                            </a>
+                            {% else %}
+                            <a class="Pagination-element Pagination-element_prev">
+                                <img src="{% static 'assets/img/icons/nextPagination.svg' %}" alt="nextPagination.svg" />
+                            </a>
+
+                            {% endif %}
+                            <a class="Pagination-element"
+                               href="{% url 'productsapp:catalog' %}?{{query}}&page={{page_obj.paginator.num_pages}}">
+                                <span class="Pagination-text">{{page_obj.paginator.num_pages}}</span>
+                            </a>
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal_open" class="my_modal">
+        <div class="my_modal-dialog">
+            <div class="my_modal-content">
+                <div class="my_modal-header">
+                    <p class="my_modal-title">{% translate 'Congratulations' %}!</p>
+                    <a href="#" title="Закрыть модальное окно" class="close">×</a>
+                </div>
+                <div class="my_modal-body">
+                    <p>{% translate 'Product successfully added to cart' %}!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block Header-searchWrap %}
+{% endblock %}
+
+{% block Header-slider %}
+{% endblock %}
+
+{% block wrap %}
+<div class="wrap">
+    <div class="row Header-rowMain">
+        <div class="row-block Header-logo"><a class="logo" href="{% url 'coreapp:index' %}"><img class="logo-image"
+                                                                                         src="{% static 'assets/img/logo.png' %}"
+                                                                                         alt="logo.png"/></a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="wrapper wrap-reg">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+    <div class="header">
+        <h3 class="sign-in">{% translate 'Registration' %}</h3>
+    </div>
+    <div class="clear"></div>
+    <form action="{% url 'authapp:signup' %}" method="post">{% csrf_token %}
+        <div class="form-wrap">
+            <div>
+                {{ form.first_name }}
+                <!--                <input class="user-input" type="text" name="first_name" id="name" placeholder="Имя"/>-->
+            </div>
+            <div>
+                {{ form.last_name }}
+                <!--                <input class="user-input" type="text" name="last_name" id="name" placeholder="Фамилия"/>-->
+            </div>
+            <div>
+                {{ form.middle_name }}
+                <!--                <input class="user-input" type="text" name="middle_name" id="name" placeholder="Отчество"/>-->
+            </div>
+            <div>
+                {{ form.email }}
+                <!--                <input class="user-input" type="email" name="email" id="name" placeholder="E-mail"/>-->
+            </div>
+            <div>
+                {{ form.password1 }}
+                <!--                <input type="password" name="pass" id="name" placeholder="Пароль"/>-->
+            </div>
+            <div>
+                {{ form.password2 }}
+                <!--                <input type="password" name="pass2" id="name" placeholder="Подтверждение пароля"/>-->
+            </div>
+            <input class="input-reg" type="submit" value="{% translate 'Register' %}"/>
+            <a class="registr log-in" href="{% url 'authapp:login' %}">
+                {% translate 'Log in' %}
+            </a>
+        </div>
+        <div class="clear"></div>
+    </form>
+</div>
+{% endblock %}
